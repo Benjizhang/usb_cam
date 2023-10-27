@@ -47,7 +47,7 @@ intrinsic_controls:
     white_balance_temperature_auto: true
     power_line_frequency: 1
     focus_automatic_continuous: false # focus_auto switch
-    focus_absolute: 60 # query current setting: v4l2-ctl --device=/dev/video0 -L|grep focus_absolute
+    focus_absolute: 75 # query current setting: v4l2-ctl --device=/dev/video0 -L|grep focus_absolute
     ignore: [
         brightness,
         contrast,

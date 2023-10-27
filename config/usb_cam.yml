@@ -41,11 +41,13 @@ framerate: 30                       # Camera polling frequency, Hz (integer)
     # It is also possible to have a list of the available control names using v4l2-ctl application from v4l2-util package:
     # v4l2-ctl --device=/dev/video<ID> -L
 intrinsic_controls:                 
-    focus_auto: false
+    # focus_auto: false
     exposure_auto_priority: true
     exposure_auto: 3
     white_balance_temperature_auto: true
     power_line_frequency: 1
+    focus_automatic_continuous: false # focus_auto switch
+    focus_absolute: 60 # query current setting: v4l2-ctl --device=/dev/video0 -L|grep focus_absolute
     ignore: [
         brightness,
         contrast,
@@ -57,8 +59,8 @@ intrinsic_controls:
         exposure_absolute,
         pan_absolute,
         tilt_absolute,
-        focus_absolute,
-        zoom_absolute
+        zoom_absolute,
+        camera_controls
     ]                               # Use this list to enumerate the control names that should be delisted from the camera setup
                                     # NOTE: the ROS parameters for the V4L controls supported but listed here would be STILL
                                     # generated, but the values WILL NOT BE USED to set up the camera. To affect these controls
